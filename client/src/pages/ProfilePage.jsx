@@ -20,6 +20,7 @@ const navigate=useNavigate();
       await updateProfile({ FullName, Bio });
        setAuthUser((prev) => ({ ...prev, FullName, Bio }));
        navigate('/');
+      return;
       
     }
 

@@ -12,7 +12,7 @@ export const ChatProvider = ({ children }) => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [unseenMessages, setUnseenMessages] = useState({});
 
-    const { socket, axios,authUser  } = useContext(AuthContext);
+    const { socket, axios  } = useContext(AuthContext);
 
     //  Get all users for sidebar
     const getUsers = async () => {

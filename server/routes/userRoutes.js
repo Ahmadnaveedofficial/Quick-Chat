@@ -210,7 +210,7 @@ router.put('/update-profile', protectRoute, async (req, res) => {
       .input('ProfilePic', sql.NVarChar, updatedProfilePic)
       .query(`
         UPDATE Users 
-        SET FullName = @FullName, Bio = @Bio, ProfilePic = @ProfilePic 
+        SET FullName = @FullName, Bio = @Bio, ProfilePic = @ProfilePic ,UpdatedAt = SYSDATETIME()
         WHERE UserID = @UserID
       `);
     // Step 5 Response
