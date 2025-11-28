@@ -8,7 +8,7 @@ const Sidebar = () => {
   const { getUsers, users, selectedUser, setSelectedUser,
     unseenMessages, setUnseenMessages } = useContext(ChatContext);
 
-  const { logout, onlineUsers } = useContext(AuthContext);
+  const { logout, onlineUsers, authUser, token } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -16,12 +16,22 @@ const Sidebar = () => {
 
   const filteredUsers = input ? users.filter((user) => user.FullName.toLowerCase().includes(input.toLowerCase())) : users;
 
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     await getUsers();
+  //   };
+  //   fetchUsers();
+  // });
+
   useEffect(() => {
-    const fetchUsers = async () => {
-      await getUsers();
-    };
-    fetchUsers();
-  });
+  if (!authUser || !token) return;
+
+  const fetchUsers = async () => {
+    await getUsers();
+  };
+  fetchUsers();
+}, [authUser, token]);
+
 
   return (
     <div className={`  bg-[#8185B2]/10 h-full p-5 relative rounded-r-xl overflow-y-scroll text-white ${selectedUser ? 'max-md:hidden' : ' '}`}>

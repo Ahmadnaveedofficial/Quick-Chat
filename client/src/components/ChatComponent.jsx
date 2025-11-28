@@ -16,6 +16,11 @@ const ChatComponent = () => {
   // handle send a message
   const handleSendMessage = async (e) => {
     e.preventDefault();
+      if (!selectedUser) {
+    toast.error("No user selected");
+    return;
+  }
+
     if (input.trim() === " ") {
       return null;
     }
@@ -26,6 +31,10 @@ const ChatComponent = () => {
   // handle send a image
 
   const handleSendImage = async (e) => {
+     if (!selectedUser) {
+    toast.error("No user selected");
+    return;
+  }
     const file = e.target.files[0];
     if (!file || !file.type.startsWith('image/')) {
       toast.error('Please select a valid image file');

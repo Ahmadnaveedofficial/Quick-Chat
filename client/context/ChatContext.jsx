@@ -12,10 +12,13 @@ export const ChatProvider = ({ children }) => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [unseenMessages, setUnseenMessages] = useState({});
 
-    const { socket, axios  } = useContext(AuthContext);
+    const { socket, axios ,token,authUser  } = useContext(AuthContext);
 
     //  Get all users for sidebar
     const getUsers = async () => {
+        if (!token){
+             return;
+        }
         try {
             const { data } = await axios.get("/api/messages/users");
               if (data) {
@@ -47,8 +50,12 @@ export const ChatProvider = ({ children }) => {
 
     //  Send message to selected user
     const sendMessage = async (messageData) => {
-        if (!selectedUser) return
-         toast.error("No user selected");
+        if (!selectedUser) {
+              toast.error("No user selected");
+            return;
+
+        }
+       
         try {
             const { data } = await axios.post(
                 `/api/messages/send/${selectedUser.UserID}`,

@@ -17,7 +17,9 @@ export const AuthProvider = ({ children }) => {
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [socket, setSocket] = useState(null);
 
-  
+  if (token) {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  }
 
   //  Check if user is authenticated
   const checkAuth = async () => {
@@ -137,6 +139,7 @@ export const AuthProvider = ({ children }) => {
     login,
     logout,
     updateProfile,
+    token,
   };
 
   return (
