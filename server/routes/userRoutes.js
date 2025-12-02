@@ -68,7 +68,7 @@ router.post('/signup', async (req, res) => {
       .input('Password', sql.NVarChar, hashedPassword)
       .input('Bio', sql.NVarChar, Bio || null)
       .input('ProfilePic', sql.NVarChar, profilePicUrl || null)
-      .query(`  INSERT INTO Users (FullName, Email, Password, Bio, ProfilePic)
+      .query(` INSERT INTO Users (FullName, Email, Password, Bio, ProfilePic)
       VALUES (@FullName, @Email, @Password, @Bio, @ProfilePic);
       SELECT SCOPE_IDENTITY() AS UserID;
   `);
