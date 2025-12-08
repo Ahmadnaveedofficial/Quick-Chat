@@ -53,9 +53,7 @@ export const ChatProvider = ({ children }) => {
         if (!selectedUser) {
               toast.error("No user selected");
             return;
-
         }
-       
         try {
             const { data } = await axios.post(
                 `/api/messages/send/${selectedUser.UserID}`,

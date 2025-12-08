@@ -17,7 +17,6 @@ const dbConfig = {
     trustServerCertificate: true
   },
 };
-
 const poolPromise = sql.connect(dbConfig);
 // Route to fetch all users except the logged-in user
 
