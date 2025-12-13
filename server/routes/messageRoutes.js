@@ -47,7 +47,7 @@ MessageRouter.get('/users', protectRoute, async (req, res) => {
     await Promise.all(promises);
     // final response
     res.status(200).json({ users: filteredUsers, unseenMessages });
-
+ 
   } catch (error) {
     console.error('Error fetching users:', error);
    res.status(500).json({ message: 'Server error fetching users.', error: error.message });

@@ -12,10 +12,11 @@ const ChatComponent = () => {
   const { authUser, onlineUsers } = useContext(AuthContext);
   const scrollEnd = useRef();
 
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState('');                  
   // handle send a message
   const handleSendMessage = async (e) => {
     e.preventDefault();
+    
       if (!selectedUser) {
     toast.error("No user selected");
     return;

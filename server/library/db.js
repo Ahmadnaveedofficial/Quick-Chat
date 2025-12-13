@@ -28,6 +28,6 @@ const connectToDatabase = async () => {
       console.dir(err, { depth: null });
   }
 };
-
+ 
 export default connectToDatabase;
 
