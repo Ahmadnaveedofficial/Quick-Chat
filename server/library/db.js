@@ -10,7 +10,7 @@ const dbConfig = {
     port: 1433,
     options: {
         encrypt: true,                     
-        trustServerCertificate: true ,      
+        trustServerCertificate: false,      
         enableArithAbort: true
     }
 };
