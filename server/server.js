@@ -6,8 +6,7 @@
   import MessageRouter from './routes/messageRoutes.js';
   import { Server } from 'socket.io';
   import http from "http";
-  import { Socket } from 'dgram';
-  import { log } from 'console';
+
 
 
 
@@ -64,9 +63,9 @@
   app.use("/api/messages",MessageRouter);
 
   // start the server
-
-  server.listen(3001, () => {
-      console.log(`Server is running on port 3001 `);
+const PORT = process.env.PORT || 3001;
+  server.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
   });
 
 
