@@ -19,7 +19,6 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "msnodesqlv8": "^5.1.8",
     "mssql": "^10.0.4",
     "nodemon": "^3.1.10",
     "socket.io": "^4.8.1",
